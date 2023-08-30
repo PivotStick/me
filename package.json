@@ -1,0 +1,19 @@
+{
+  "name": "uguo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "code-red": "^1.0.4",
+    "estree-walker": "^3.0.3",
+    "vue": "^3.3.4"
+  }
+}
