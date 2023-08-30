@@ -9,11 +9,13 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "sass": "^1.66.1",
     "vite": "^4.4.5"
   },
   "dependencies": {
     "code-red": "^1.0.4",
     "estree-walker": "^3.0.3",
+    "twing": "^6.0.0-alpha.1",
     "vue": "^3.3.4"
   }
 }

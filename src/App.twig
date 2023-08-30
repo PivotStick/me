@@ -1,2 +1,7 @@
-<h1 class="bonsoir" oui="singe">{{ counter }}</h1>
-<button>Increment</button>
+<div class="app">
+    <button on:mousemove="decrement">--</button>
+    <button on:click="decrement">Decrement</button>
+    <h1>{{ counter }}</h1>
+    <button on:click="increment">Increment</button>
+    <button on:mousemove="increment">++</button>
+</div>

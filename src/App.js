@@ -1,19 +1,17 @@
 /**
- * @param {HTMLElement} container
+ * @param {HTMLElement} parent
  * @param {{ counter: number }} props
  * @param {() => void} invalidate
  */
-export default function (container, props, invalidate) {
+export default function (parent, props, invalidate) {
     return {
-        onMount() {
-            const button = container.querySelector("button");
-
-            if (button) {
-                button.addEventListener("click", () => {
-                    props.counter++;
-                    invalidate();
-                });
-            }
+        increment() {
+            props.counter++;
+            invalidate();
+        },
+        decrement() {
+            props.counter--;
+            invalidate();
         },
     };
 }

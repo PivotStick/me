@@ -89,7 +89,10 @@ export const parse = (content) => {
 
             return {
                 type: "MustacheExpression",
-                expression: expression.trim(),
+                expression: {
+                    type: "Identifier",
+                    name: expression.trim(),
+                },
             };
         }
     }

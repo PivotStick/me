@@ -1,0 +1,25 @@
+.app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 4rem;
+
+    button {
+        cursor: pointer;
+        border: none;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.25rem;
+        opacity: 0.7;
+        transition: 600ms cubic-bezier(0.1, 1.35, 0.25, 1) scale;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &:active {
+            opacity: 0.5;
+            scale: 0.95;
+        }
+    }
+}
