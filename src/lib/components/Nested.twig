@@ -1,0 +1,18 @@
+<script>
+    import { slide } from "svelte/transition";
+    import { backOut } from "svelte/easing";
+
+    export let counter = 3
+</script>
+
+<h1>Nested {{ counter }}</h1>
+<p>Cool non ?</p>
+{% if counter > 10 %}
+    <button transition:slide="{{{ easing: backOut }}}" on:click="{() => counter = 0}">Non</button>
+{% endif %}
+
+<style>
+    button {
+        display: block;
+    }
+</style>

@@ -1,0 +1,13 @@
+<script>
+    import Nested from "../lib/components/Nested.twig";
+
+    let counter = 2;
+</script>
+
+<button on:click="{() => counter++}">Increment</button>
+
+<Nested bind:counter></Nested>
+<Nested bind:counter></Nested>
+<Nested bind:counter></Nested>
+<Nested counter="{{ counter }}"></Nested>
+<Nested></Nested>

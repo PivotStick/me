@@ -1,0 +1,14 @@
+<script>
+    export let page;
+    export let pageData;
+
+    export let layout;
+</script>
+
+{% if page && layout %}
+    <svelte:component this="{{ layout }}">
+        <svelte:component this="{{ page }}" data="{{ pageData }}"></svelte:component>
+    </svelte:component>
+{% else if page %}
+    <svelte:component this="{{ page }}" data="{{ pageData }}"></svelte:component>
+{% endif %}
