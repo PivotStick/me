@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import fs from "fs/promises";
 import { existsSync } from "fs";
-import { compile } from "svelte/compiler";
+import { compile, preprocess } from "svelte/compiler";
 import sveltePreprocess from "svelte-preprocess";
 import Twig from "twig";
 import { b, print } from "code-red";
@@ -13,9 +13,11 @@ import { join } from "path";
  */
 const componentToClient = async (id, code) => {
     const cssPath = id.replace(".twig", ".css");
+    const scssPath = id.replace(".twig", ".scss");
     const jsPath = id.replace(".twig", ".js");
 
     const hasCss = existsSync(cssPath);
+    const hasScss = existsSync(scssPath);
     const hasJs = existsSync(jsPath);
 
     let result = "";
@@ -38,7 +40,16 @@ const componentToClient = async (id, code) => {
         result += `<style>${await fs.readFile(cssPath, "utf-8")}</style>`;
     }
 
-    return compile(result, {
+    if (hasScss) {
+        result += `<style lang="scss">${await fs.readFile(
+            scssPath,
+            "utf-8"
+        )}</style>`;
+    }
+
+    const preprocessed = await preprocess(result, sveltePreprocess());
+
+    return compile(preprocessed.code, {
         cssHash: ({ css, hash }) => `zone-${hash(css)}`,
         hydratable: true,
     });

@@ -1,13 +1,19 @@
 <script>
-    import Nested from "../lib/components/Nested.twig";
 
-    let counter = 2;
+    let history = [
+        "oui",
+        "non",
+    ]
 </script>
 
-<button on:click="{() => counter++}">Increment</button>
+<ul>
+    {% for item in history %}
+        <h1>{{ item }}</h1>
+    {% endfor %}
+</ul>
 
-<Nested bind:counter></Nested>
-<Nested bind:counter></Nested>
-<Nested bind:counter></Nested>
-<Nested counter="{{ counter }}"></Nested>
-<Nested></Nested>
+<style lang="scss">
+    ul {
+        display: flex;
+    }
+</style>
